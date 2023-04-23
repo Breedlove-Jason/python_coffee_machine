@@ -27,13 +27,25 @@ def make_coffee(drink_name):
 print("Welcome to the Coffee Machine")
 print_report()
 
-# print("What would you like? (espresso/latte/cappuccino):")
-print("First Drink")
-make_coffee("latte")
-print("Second Drink")
-make_coffee("latte")
+coffee_loop = True
+while coffee_loop:
+    if resources["water"] < 0 or resources["milk"] < 0 or resources["coffee"] < 0:
+        print("Sorry, there is not enough resources to make another drink.")
+        coffee_loop = False
+        break
+    user_input = int(input("What would you like? (1. for espresso | 2. for latte | 3. for cappuccino):"))
+    if user_input == 1:
+        make_coffee("espresso")
+    elif user_input == 2:
+        make_coffee("latte")
+    elif user_input == 3:
+        make_coffee("cappuccino")
+    else:
+        print("Invalid input")
+
 print("Ending Resources")
 print_report()
+
 
 # TODO: 3. Process coins
 
