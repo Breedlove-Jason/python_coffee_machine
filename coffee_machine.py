@@ -19,9 +19,9 @@ def make_coffee(drink_name):
         if resources[key] < 0:
             print(f"Sorry there is not enough {key}.")
             resources[key] += value
-            return
-
+            return False
     print(f"Here is your {drink_name} ☕️. Enjoy!")
+    return True
 
 
 def coins_operate():
